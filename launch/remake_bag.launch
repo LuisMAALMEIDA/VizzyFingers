@@ -1,0 +1,9 @@
+<launch>
+
+	<arg name="path" default="/home/luis/catkin_ws/src/vizzy_fingers/rosbags/" /> 
+	<arg name="file_1" default="2018-11-30-11-01-02" />
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock $(arg path)$(arg file_1).bag"/>
+	<node pkg="vizzy_fingers" type="subscreve_tf" name="subscreve_tf1" />	
+	<node pkg="rosbag" type="record" name="recorder" output="screen" args="-a"/>
+	
+</launch>	

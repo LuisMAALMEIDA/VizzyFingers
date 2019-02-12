@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="vizzy_fingers" type="publica_marker"
+          args="-c=/home/luis/Desktop/out_camera_calibration.yml -d=12 -ci=1" name="publica_marker_1" />
+  </launch>

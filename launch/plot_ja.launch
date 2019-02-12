@@ -1,0 +1,10 @@
+<launch>
+
+	<node pkg='rqt_plot' name='rqt_plot1' type='rqt_plot' args='/joint_angles_fingers_topic/joint_angles[0]'/>
+	<node pkg='rqt_plot' name='rqt_plot2' type='rqt_plot' args='/joint_angles_fingers_topic/joint_angles[1]'/>
+	<node pkg='rqt_plot' name='rqt_plot3' type='rqt_plot' args='/joint_angles_fingers_topic/joint_angles[2]'/>
+	<arg name="path" default="/home/luis/catkin_ws/src/vizzy_fingers/rosbags/" /> 
+	<arg name="file_1" default="2018-11-26-20-45-34" />
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -s 20 -l $(arg path)$(arg file_1).bag"/>
+	
+</launch>

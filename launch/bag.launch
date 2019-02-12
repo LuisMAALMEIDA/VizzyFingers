@@ -1,0 +1,9 @@
+<launch>
+
+	<node type="rviz" name="rviz" pkg="rviz" args="-d $(find vizzy_fingers)/rviz/config_file.rviz" />
+	<node pkg='rqt_plot' name='rqt_plot' type='rqt_plot' args='/tactileForceField/sensorArray[6]/field'/>
+	<arg name="path" default="/home/luis/catkin_ws/src/vizzy_fingers/rosbags/" /> 
+	<arg name="file_1" default="2018-10-26-16-49-28" />
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -s 20 -l $(arg path)$(arg file_1).bag"/>
+	
+</launch>	

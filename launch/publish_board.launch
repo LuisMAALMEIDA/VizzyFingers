@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="vizzy_fingers" type="publica_board"
+          args="-c=/home/luis/catkin_ws/src/vizzy_fingers/calib_cam/camera_result.yml --ci=1 -d=0 -h=4 -l=0.01  --rs -s=0.005 -w=1" name="publish_board" output="screen" />
+    <node pkg="vizzy_fingers" type="subscreve_tf"  name="subscreve_tf" />
+  </launch>

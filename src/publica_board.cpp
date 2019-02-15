@@ -260,7 +260,7 @@ int main(int argc, char *argv[]) {
             return 0;
         }
     }
-
+    
     Ptr<aruco::DetectorParameters> detectorParams = aruco::DetectorParameters::create();
     if(parser.has("dp")) {
         bool readOk = readDetectorParameters(parser.get<string>("dp"), detectorParams);

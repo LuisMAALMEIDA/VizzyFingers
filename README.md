@@ -3,18 +3,18 @@ Este package ROS foi desenvolvido para se obterem os valores dos ângulos de rot
 
 ![alt text](https://raw.githubusercontent.com/LuisMAALMEIDA/VizzyFingers/master/imgs/markers.jpg "Board Makers on Vizzy's Finger")
 
-Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem impressas. Depois de imprimidas, sugere-se a colagem de cada _board_ a um pedaço de cartão de forma a esta ficar o mais plana possível.
+Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem impressas. Depois de impressas, sugere-se a colagem de cada _board_ a um pedaço de cartão de forma a esta ficar o mais plana possível.
 ## Requisitos:
-- Instalar o OpenCV e o Opencontrib versão 3.3.1
+- Ter o OpenCV e o Opencontrib versão 3.3.1 instalado
 - Ter o ROS instalado
-- Ter uma câmara usb ligada ao pc
+- Ter uma câmara usb ligada ao PC
 
 ## Como inicializar:
 - Fazer o download deste package para dentro da pasta src do catkin_workspace (/catkin_ws/src)
 - Na directoria (/catkin_ws), correr o comando : 
 
     catkin_make
-- Calibrar a camera para obter um ficheiro com os seus paramêtros
+- Calibrar a câmera para obter um ficheiro com os seus paramêtros
 ## Nós existentes:
 
 - <h3>publica_board </h3>
@@ -24,11 +24,10 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 
     -  -c: directoria do ficheiro de calibração da câmara 
     ex: -c=/home/luis/catkin_ws/src/vizzy_fingers/calib_cam/camera_result.yml
-    - --ci: Índice da câmara usb (câmara do pc:0, outra câmara ligada ao pc: 1)
+    - --ci: Índice da câmara usb (câmara do PC:0, outra câmara ligada ao PC: 1)
     - -d: Índice do dicionário usado
     - -w: Numero de markers na posição X
     - -h: Numero de markers na posição Y
     - -l: Tamanho do lado do marker (em cm)
     - -s: Separação entre dois markers consecutivos (em cm)
     - --rs: Aplicação da _refind strategy_
-- 

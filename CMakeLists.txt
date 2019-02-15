@@ -151,27 +151,27 @@ include_directories(
 # )
 
 
-add_executable(publica_marker src/publica_markers.cpp)
+add_executable(publish_marker src/publish_markers.cpp)
 
-add_dependencies(publica_marker ${catkin_EXPORTED_TARGETS})
-target_link_libraries(publica_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
-
-add_executable(subscreve_marker src/subscreve_markers.cpp)
-
-add_dependencies(subscreve_marker ${catkin_EXPORTED_TARGETS})
-target_link_libraries(subscreve_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(publish_marker ${catkin_EXPORTED_TARGETS})
+target_link_libraries(publish_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 
-add_executable(subscreve_tf src/subscreve_tf.cpp)
+add_executable(subscribe_marker src/subscribe_markers.cpp)
 
-add_dependencies(subscreve_tf ${catkin_EXPORTED_TARGETS})
-target_link_libraries(subscreve_tf ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(subscribe_marker ${catkin_EXPORTED_TARGETS})
+target_link_libraries(subscribe_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
-add_executable(publica_board src/publica_board.cpp)
 
-add_dependencies(publica_board ${catkin_EXPORTED_TARGETS})
-target_link_libraries(publica_board ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_executable(subscribe_tf src/subscribe_tf.cpp)
+
+add_dependencies(subscribe_tf ${catkin_EXPORTED_TARGETS})
+target_link_libraries(subscribe_tf ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_executable(publish_board src/publish_board.cpp)
+
+add_dependencies(publish_board ${catkin_EXPORTED_TARGETS})
+target_link_libraries(publish_board ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 
 

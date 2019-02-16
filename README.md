@@ -7,7 +7,7 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 ## Requisitos:
 - Ter o OpenCV e o Opencontrib versão 3.3.1 instalado
 - Ter o ROS instalado
-- Ter uma câmera usb ligada ao PC
+- Ter uma câmera USB ligada ao PC
 
 ## Como inicializar:
 - Fazer o download deste _package_ para dentro da pasta src do catkin_workspace (/catkin_ws/src)
@@ -19,7 +19,7 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 
 - <h3>publish_board </h3>
 
-    A posição e orientação das  _boards_  obtidas pela câmera são publicadas no tópico _Markers_chatter_. 
+    A posição e orientação (_pose_) das  _boards_  obtidas pela câmera são publicadas no tópico _Markers_chatter_. 
     O tipo de mensagens publicadas é um vetor de _markers_, em que cada _marker_ contém o identificador da _board_, a sua _pose_ e a transformada da _frame_ da _board_ em relação à _frame_ da câmera. 
     Além disto, as transformadas das _frames_ das _boards_ são publicadas no tópico _tf_.
     
@@ -38,15 +38,16 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
     
 -  <h3>subscribe_tf </h3>
 
-    Este nó subscreve as transformadas de cada _board_ em relação à _frame_ da câmera do tópico _tf_.  Assim, com estas transformadas, facilmente se obtêm as transformadas entre cada uma das _boards_ adjacentes (i.e. entre a 1ª e a 2ª, 2ª e a 3ª, 3ª e a 4ª _board_). Sendo que com  estas transformadas se conseguem obter os ângulos de rotação _roll_, _pitch_ e _yaw_. 
+    Este nó subscreve as transformadas de cada uma das _frames_ das _boards_ em relação à _frame_ da câmera do tópico _tf_.  Assim, com estas transformadas, facilmente se obtêm as transformadas entre cada uma das _boards_ adjacentes (i.e. entre a 1ª e a 2ª, 2ª e a 3ª, 3ª e a 4ª _board_). Sendo que com  estas transformadas se conseguem obter os ângulos de rotação _roll_, _pitch_ e _yaw_. 
+    Estes ângulos de rotação iram ser publicados no tópico _/joint_angles_fingers_topic_.
     
     Nota: Um ângulo de uma junta do dedo pode ser dado aproximadamente pelo ângulo _yaw_ da transformação entre as duas _boards_ que a rodeiam.
 
--  <h3>publish_markers </h3>
+-  <h3>publish_marker </h3>
 
-    A primeira tentativa para detetar o ângulo de rotação de cada uma das juntas do dedo, utilizou-se apenas um _marker_ em vez de uma _board_. 
+    Na primeira tentativa para detetar o ângulo de rotação de cada uma das juntas do dedo, utilizou-se _markers_ em vez de _boards_. 
     A vantagem da utilização das _boards_ em relação aos _markers_ deve-se ao facto de uma melhor precisão da _pose_ por parte das _boards_ relativamente aos _markers_. 
-    Tirando esta diferença, a estrutura do _publish_markers_ é igual à do _publish_board_.
+    Tirando esta diferença, a estrutura do _publish_marker_ é igual à do _publish_board_.
     
       Argumentos:
 
@@ -59,7 +60,15 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 
 -  <h3>subscribe_markers </h3>
 
-      Subscreve um vetor de _markers_, imprimindo o seu identificador e a sua _pose_.
-      Pode ser útil para fazer _debug_.
+      Subscreve um vetor de _markers_, imprimindo o seu identificador e a sua _pose_ no terminal.
+      Este nó pode ser útil para ver se as _poses_ dos _markers_ calculadas correspondem com as da realidade.
   
 ## Launches existentes:
+
+-  <h3>publish_board </h3>
+
+    Lança os nós **publish_board** e **subscribe_tf**, de forma a obter-se os ângulos de rotação em cada uma das juntas apenas com um "comando". Além disso, pode-se guardar estes ângulos de rotação num _rosbag_.
+    
+-  <h3>publish_marker </h3>
+
+    Lança o nó **publish_marker**, que publica um vetor de _markers_, em que cada _marker_ contém o seu identificador, a sua _pose_  e a transformada da _frame_ do _marker_ em relação à _frame_ da câmera. 

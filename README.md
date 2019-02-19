@@ -14,7 +14,7 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 - Na directoria (/catkin_ws), correr o comando: 
 
       catkin_make
-- Calibrar a câmara para obter um ficheiro com os seus parâmetros
+- Calibrar a câmara para obter um ficheiro com os seus parâmetros. Este ficheiro deve ser posto dentro da pasta _[calib_cam](https://github.com/LuisMAALMEIDA/vizzy_fingers/tree/master/calib_cam "calib_cam")_ com o nome *camera_result.yml*
 ## Nós existentes:
 
 - <h3>publish_board </h3>
@@ -27,7 +27,7 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 
     -  -c: directoria do ficheiro de calibração da câmara 
     
-           ex: -c=/<install_dir>/catkin_ws/src/vizzy_fingers/calib_cam/camera_result.yml
+           ex: -c=$(find vizzy_fingers)/calib_cam/camera_result.yml
     - --ci: Índice da câmara USB (câmara do PC: 0, outra câmara ligada ao PC: 1)
     - -d: Índice do dicionário usado
     - -w: Número de markers na posição X (_board_ width)
@@ -53,7 +53,7 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 
     -  -c: directoria do ficheiro de calibração da câmara 
     
-           ex: -c=/<install_dir>/catkin_ws/src/vizzy_fingers/calib_cam/camera_result.yml
+           ex: -c=$(find vizzy_fingers)/calib_cam/camera_result.yml
     - --ci: Índice da câmara USB (câmara do PC: 0, outra câmara ligada ao PC: 1)
     - -d: Índice do dicionário usado
     
@@ -72,3 +72,4 @@ Na pasta **imgs/boards** podem ser encontradas imagens das _boards_ para serem i
 -  <h3>publish_marker </h3>
 
     Lança o nó **publish_marker**, que publica um vetor de _markers_, em que cada _marker_ contém o seu identificador, a sua _pose_  e a transformada da _frame_ do _marker_ em relação à _frame_ da câmara. 
+

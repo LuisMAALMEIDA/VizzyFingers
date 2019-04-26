@@ -159,7 +159,7 @@ target_link_libraries(publish_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_executable(subscribe_marker src/subscribe_markers.cpp)
 
-add_dependencies(subscribe_marker ${catkin_EXPORTED_TARGETS})
+add_dependencies(subscribe_marker ${vizzy_fingers_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(subscribe_marker ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 

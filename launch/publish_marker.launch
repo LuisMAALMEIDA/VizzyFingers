@@ -1,4 +1,4 @@
 <launch>
     <node pkg="vizzy_fingers" type="publish_marker"
-          args="-c=/home/luis/Desktop/out_camera_calibration.yml -d=12 -ci=1" name="publish_marker_1" />
+          args="-c=$(find vizzy_fingers)/calib_cam/camera_result.yml -d=12 -ci=1" name="publish_marker_1" />
   </launch>
